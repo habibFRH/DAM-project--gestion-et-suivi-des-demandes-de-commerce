@@ -1,41 +1,44 @@
 // home_page.dart
 
-import 'package:flutter/material.dart';
+// ignore_for_file: use_build_context_synchronously
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'auth/auth_service.dart';
 
 class HomePage extends StatelessWidget {
+  final AuthService _authService = AuthService();
 
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () async {
+              // Call the logout method from your AuthService
+              await _authService.signOut();
+              // Navigate back to the login page
+              Navigator.pushReplacementNamed(context, '/');
+            },
+          ),
+        ],
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Welcome to the Home Page!',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 20),
-          ],
-        ),
+      body: Center(
+        child: FirebaseAuth.instance.currentUser!.emailVerified
+            ? const Text(
+                'Welcome to the Home Page!',
+                style: TextStyle(fontSize: 20),
+              )
+            : const Text(
+                'please verify your mail',
+                style: TextStyle(fontSize: 20),
+              ),
       ),
     );
   }
 }
-
-
-            // ElevatedButton(
-            //   onPressed: () async {
-            //     // Call the sign-out method
-            //     await _authService.signOut();
-            //     // Navigate back to the login page
-            //     Navigator.pop(context);
-            //   },
-            //   child: Text('Sign Out'),
-            // ),

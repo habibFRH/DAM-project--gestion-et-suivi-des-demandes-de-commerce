@@ -32,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Login failed. Check your credentials.'),
-          closeIconColor: Colors.red,
         ),
       );
     }
