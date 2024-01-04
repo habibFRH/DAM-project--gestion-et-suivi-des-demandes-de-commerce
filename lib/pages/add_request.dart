@@ -125,13 +125,6 @@ class _AddRequestState extends State<AddRequest> {
                             hinttext: 'Enter Your full name',
                             mycontroller: nameController,
                           ),
-                          // CustomTextForm(
-                          //   obscureText: false,
-                          //   keyboardType: TextInputType.datetime,
-                          //   label: "Birthday date",
-                          //   hinttext: 'Enter Your birthday',
-                          //   mycontroller: birthdayController,
-                          // ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
