@@ -40,7 +40,7 @@ class CustomTextForm extends StatelessWidget {
             hintText: "   $hinttext",
             hintStyle: const TextStyle(fontSize: 14, color: Colors.grey),
             contentPadding:
-                const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 2, horizontal: 20),
             filled: true,
             fillColor: const Color.fromARGB(255, 255, 255, 255),
             border: OutlineInputBorder(

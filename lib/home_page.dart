@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, unused_field
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -31,26 +31,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: AppBar(
-        title: const Text(
-          'Home Page',
-          style: TextStyle(
-              color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: const Color(0xff5E17EB),
-        actions: [
-          IconButton(
-            color: Colors.red,
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () async {
-              // Call the logout method from your AuthService
-              await _authService.signOut();
-              // Navigate back to the login page
-              Navigator.pushReplacementNamed(context, '/');
-            },
-          ),
-        ],
-      ),
       body: screens[index],
       bottomNavigationBar: CurvedNavigationBar(
         height: 53,
@@ -59,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         }),
         index: index,
         items: items,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         animationDuration: const Duration(milliseconds: 300),
         color: const Color(0xff5E17EB),
       ),
