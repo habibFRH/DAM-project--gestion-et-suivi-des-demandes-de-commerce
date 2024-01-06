@@ -5,9 +5,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:my_flutter_project/pages/helpPage.dart';
 import 'auth/login.dart';
 import 'auth/sign_up_page.dart';
 import 'home_page.dart';
+import 'pages/contactUs.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,8 +34,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
-        '/home': (context) => const HomePage(),
+        '/home': (context) =>  const HomePage(),
         '/sign_up': (context) => const SignUpPage(),
+        '/help_page': (context) => const HelpPage(),
+        '/contactus_page': (context) => ContactUsPage(),
       },
     );
   }

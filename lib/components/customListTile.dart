@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
   final String state;
-
-  CustomListTile({Key? key, required this.state}) : super(key: key);
+  final String title;
+  CustomListTile({Key? key, required this.state, required this.title}) : super(key: key);
 
   final colors = [
     Colors.orange[400],
@@ -55,6 +55,7 @@ class CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Card(
       child: ListTile(
         onTap: () {},
@@ -63,7 +64,7 @@ class CustomListTile extends StatelessWidget {
           color: getColor(),
         ),
         title: Text(
-          state,
+          title,
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
         trailing: Container(

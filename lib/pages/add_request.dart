@@ -4,6 +4,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:date_field/date_field.dart';
+import '../components/drawer.dart';
 import '../components/textFormField.dart';
 
 class AddRequest extends StatefulWidget {
@@ -15,6 +16,7 @@ class AddRequest extends StatefulWidget {
 
 class _AddRequestState extends State<AddRequest> {
   int _currentstep = 0;
+  static int rnumber = 0;
   final TextEditingController companynamecontroller = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
@@ -86,6 +88,7 @@ class _AddRequestState extends State<AddRequest> {
                           title: 'Success!',
                           btnOkOnPress: () {},
                         ).show();
+                        rnumber++;
                         CollectionReference collRef =
                             FirebaseFirestore.instance.collection('Request');
                         await collRef.add({
@@ -98,6 +101,8 @@ class _AddRequestState extends State<AddRequest> {
                           'name': nameController.text,
                           'nationality': nationalityController.text,
                           'phone': numberController.text,
+                          'state': "Processing",
+                          "request": "Request $rnumber",
                         });
                       } else {
                         AwesomeDialog(
