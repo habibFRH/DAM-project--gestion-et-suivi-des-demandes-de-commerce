@@ -3,6 +3,7 @@
 
 import 'dart:io';
 
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:my_flutter_project/pages/helpPage.dart';
@@ -10,9 +11,11 @@ import 'auth/login.dart';
 import 'auth/sign_up_page.dart';
 import 'home_page.dart';
 import 'pages/contactUs.dart';
+import 'services/notificationService.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initializeNotification();
   Platform.isAndroid
       ? await Firebase.initializeApp(
           options: const FirebaseOptions(
@@ -34,12 +37,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
-        '/home': (context) =>  const HomePage(),
+        '/home': (context) => const HomePage(),
         '/sign_up': (context) => const SignUpPage(),
         '/help_page': (context) => const HelpPage(),
-        '/contactus_page': (context) => ContactUsPage(),
+        '/contactus_page': (context) => const ContactUsPage(),
       },
     );
   }
-  
 }

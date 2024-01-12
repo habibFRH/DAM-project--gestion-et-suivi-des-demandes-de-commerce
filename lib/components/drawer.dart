@@ -48,19 +48,19 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-          Card(
-            child: ListTile(
-              onTap: () {},
-              leading: const Icon(
-                Icons.smart_toy_rounded,
-                color: Colors.black,
-              ),
-              title: const Text(
-                "Ask GPT",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-              ),
-            ),
-          ),
+          // Card(
+          //   child: ListTile(
+          //     onTap: () {},
+          //     leading: const Icon(
+          //       Icons.smart_toy_rounded,
+          //       color: Colors.black,
+          //     ),
+          //     title: const Text(
+          //       "Ask GPT",
+          //       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          //     ),
+          //   ),
+          // ),
           Card(
             color: Colors.red,
             child: ListTile(

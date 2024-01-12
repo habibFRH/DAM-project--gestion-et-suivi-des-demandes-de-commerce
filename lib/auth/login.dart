@@ -86,15 +86,15 @@ class _LoginPageState extends State<LoginPage> {
                   hinttext: 'Enter Your Password',
                   mycontroller: passwordController,
                 ),
-                Container(
-                  alignment: Alignment.topRight,
-                  margin: const EdgeInsets.only(top: 10, bottom: 20),
-                  child: const Text(
-                    "Forgot Password",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ),
+                // Container(
+                //   alignment: Alignment.topRight,
+                //   margin: const EdgeInsets.only(top: 10, bottom: 20),
+                //   child: const Text(
+                //     "Forgot Password",
+                //     textAlign: TextAlign.right,
+                //     style: TextStyle(fontSize: 14),
+                //   ),
+                // ),
               ],
             ),
             CustomButtonAuth(
@@ -104,22 +104,22 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               height: 10,
             ),
-            MaterialButton(
-              height: 40,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              onPressed: () {},
-              color: const Color.fromARGB(255, 18, 194, 135),
-              child: const Text(
-                "Login with Google",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            // MaterialButton(
+            //   height: 40,
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(20),
+            //   ),
+            //   onPressed: () {},
+            //   color: const Color.fromARGB(255, 18, 194, 135),
+            //   child: const Text(
+            //     "Login with Google",
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 20,
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            // ),
             Container(
               height: 20,
             ),

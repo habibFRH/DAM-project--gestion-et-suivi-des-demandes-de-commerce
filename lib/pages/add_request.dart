@@ -1,9 +1,11 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print
 
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:date_field/date_field.dart';
+import 'package:my_flutter_project/services/notificationService.dart';
 import '../components/drawer.dart';
 import '../components/textFormField.dart';
 
@@ -74,7 +76,16 @@ class _AddRequestState extends State<AddRequest> {
                         _currentstep += 1;
                       });
                     } else {
-                      if (val == true) {
+                      if (val == true &&
+                        activitytypeController.text.isNotEmpty &&
+                        addressController.text.isNotEmpty &&
+                        numberController.text.isNotEmpty &&
+                        nationalityController.text.isNotEmpty &&
+                        nameController.text.isNotEmpty &&
+                        emailController.text.isNotEmpty &&
+                        companynamecontroller.text.isNotEmpty &&
+                        idnumberController.text.isNotEmpty
+                      ) {
                         AwesomeDialog(
                           context: context,
                           animType: AnimType.rightSlide,
@@ -104,7 +115,23 @@ class _AddRequestState extends State<AddRequest> {
                           'state': "Processing",
                           "request": "Request $rnumber",
                         });
-                      } else {
+                        await NotificationService.showNotification(
+                            title: "REGISTRECOM",
+                            body:
+                                "REQUEST ADDED TO THE DATABASE SUCCESSFULLY ! ",
+                            summary: "REQUEST",
+                            notificationLayout: NotificationLayout.Inbox,
+                            payload: {
+                              "navigate": "true",
+                            },
+                            actionButtons: [
+                              NotificationActionButton(
+                                  key: 'check',
+                                  label: 'Check it out',
+                                  actionType: ActionType.DismissAction,
+                                  color: const Color.fromRGBO(94, 23, 235, 1))
+                            ]);
+                      } else{
                         AwesomeDialog(
                           context: context,
                           animType: AnimType.rightSlide,
